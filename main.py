@@ -34,7 +34,7 @@ app = FastAPI(lifespan=lifespan)
 
 @app.get("/")
 def read_root():
-    return {"message": settings.greeting}
+    return {"message": settings.greeting, "version": "1.1.0"}
 
 
 @app.get("/health")
