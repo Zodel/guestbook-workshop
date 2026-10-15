@@ -4,11 +4,9 @@ RUN pip install --no-cache-dir uv
 
 WORKDIR /app
 
-# Сначала зависимости: слой кэшируется, пока не менялись pyproject.toml и uv.lock
 COPY pyproject.toml uv.lock .python-version ./
 RUN uv sync --frozen --no-dev
 
-# Потом код
 COPY . .
 
 EXPOSE 8000
